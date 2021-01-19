@@ -4,7 +4,7 @@ from flask_marshmallow import Marshmallow
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://webadmin: SSVqpk94182-itstaff-cloud00.googlejp.app.ruk-com.cloud:11070/CloudDB'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://webadmin:SSVqpk94182@node8615-advweb-24.app.ruk-com.cloud:11107/CloudDB'
 app.config['SQLALCHEMY_TRACK)MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -32,6 +32,13 @@ class StaffSchema(ma.Schema):
 staff_schema = StaffSchema()
 staffs_schema = StaffSchema(many=True)
 
+# Get All Staffs
+@app.route('/staffs', methods=['GET'])
+def get_staffs():
+    all_staffs = Staffs.query.all()
+    result = staffs_schema.dump(all_staffs)
+    return jsonify(result)
+
 # Web Root Hello
 @app.route('/', methods=['GET'])
 def get():
@@ -40,3 +47,5 @@ def get():
 # Run Server
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
+
+    
