@@ -4,7 +4,7 @@ from flask_marshmallow import Marshmallow
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://webadmin:SSVqpk94182@node8615-advweb-24.app.ruk-com.cloud:11107/DB3table'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://webadmin:SSVqpk94182@10.100.2.210:5432/DB3table'
 app.config['SQLALCHEMY_TRACK)MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
