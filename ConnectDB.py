@@ -4,7 +4,7 @@ try:
                                     password="SSVqpk94182",
                                     host="node8615-advweb-24.app.ruk-com.cloud",
                                     port="11107",
-                                    database="CloudDB")
+                                    database="DB3table")
     cursor = connection.cursor()
     print(connection.get_dsn_parameters(),"\n")
 
